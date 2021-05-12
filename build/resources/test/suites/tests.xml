@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="Interview suite" verbose="1" parallel="false">
-    <test name="Interview" >
-        <packages>
-            <package name="ABSoftTests.*"></package>
-        </packages>
-    </test>
-</suite>
