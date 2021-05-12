@@ -8,7 +8,8 @@ computers
 1. Download project using git or zip
 2. Install Java 8
 3. Open command line in the project's folder (containing gradle.build)
-4. Execute commands: 
+4. Install Firefox 
+5. Execute commands: 
    
    - to build the project
   
