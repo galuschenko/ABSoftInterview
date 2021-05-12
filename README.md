@@ -10,11 +10,19 @@ computers
 3. Open command line in the project's folder (containing gradle.build)
 4. Execute commands: 
    
-   ./gradlew -i clean build   - to build the project
+   - to build the project
+  
+         ./gradlew -i clean build 
+ 
+   - to run the tests
    
-   ./gradlew -i runTests      - to run the tests
+         ./gradlew -i runTests   
 
-   ./gradlew allureReport      - to generate report
+   - to generate report
+   
+         ./gradlew allureReport      
 
-   ./gradlew allureServe       - to open generated Allure report
+- to open generated Allure report
+
+          ./gradlew allureServe
 
