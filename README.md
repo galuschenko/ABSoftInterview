@@ -23,7 +23,7 @@ computers
    
          ./gradlew allureReport      
 
-- to open generated Allure report
+   - to open generated Allure report
 
           ./gradlew allureServe
 
