@@ -1,0 +1,29 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Default Suite",
+    "children" : [ {
+      "name" : "ABSoftInterview",
+      "children" : [ {
+        "name" : "ABSoftTests.AddingNewComputer",
+        "children" : [ {
+          "name" : "addingNewComputerTest",
+          "uid" : "da3ca108e75dcae0",
+          "parentUid" : "f347e73096857b4fbca0dc07ddff5e67",
+          "status" : "failed",
+          "time" : {
+            "start" : 1620819360091,
+            "stop" : 1620819365592,
+            "duration" : 5501
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "f347e73096857b4fbca0dc07ddff5e67"
+      } ],
+      "uid" : "e0bf5da24c289f1c508ac8968ffbf82d"
+    } ],
+    "uid" : "8399274b4bb69ec8699907dd6ef7de4e"
+  } ]
+}

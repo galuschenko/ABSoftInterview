@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.6.0"
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'io.qameta.allure'
+
+def allureVersion = "2.6.0"
+
+allure {
+    autoconfigure = true
+    version = allureVersion
+    downloadLink = "https://github.com/allure-framework/allure2/releases/download/$allureVersion/allure-${allureVersion}.zip"
+    clean = true
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+wrapper {
+    gradleVersion = '5.2.1'
+}
+
+dependencies {
+    compileOnly('io.qameta.allure:allure-plugin-api:2.5.0')
+    compile "io.qameta.allure:allure-gradle:2.5"
+    compile 'io.qameta.allure:allure-testng:2.6.0'
+    compile group: 'org.testng', name: 'testng', version: '6.14.3'
+    implementation 'com.cognifide.aet:selenium:3.2.2'
+
+}
+
+task copyConfig(type: Copy) {
+    from 'src/test/resources/config'
+    into 'build/allure-results'
+}
+test.dependsOn copyConfig
+
+task runTests(type: Test) {
+    ignoreFailures = true
+    useTestNG() {
+        suites 'src/test/resources/suites/tests.xml'
+    }
+
+    systemProperty 'allure.model.indentOutput', true
+    systemProperty 'allure.results.directory', '/allure-results'
+
+    testLogging.showStandardStreams = true
+}

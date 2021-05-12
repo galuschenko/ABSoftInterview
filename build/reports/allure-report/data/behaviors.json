@@ -1,0 +1,17 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "addingNewComputerTest",
+    "uid" : "da3ca108e75dcae0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1620819360091,
+      "stop" : 1620819365592,
+      "duration" : 5501
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  } ]
+}

@@ -1,0 +1,1 @@
+{"uuid":"668a6c71-df3b-44d7-85fd-717386722a99","name":"ABSoftTests.TestBase.stop","description":"","start":1620819365605,"stop":1620819366262,"children":["d1a9e8f9-0883-4de7-a471-574fb61bf9c6"],"afters":[{"name":"stop","status":"passed","stage":"finished","description":"","start":1620819365605,"stop":1620819366262}]}
