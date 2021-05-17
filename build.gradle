@@ -17,7 +17,8 @@ def allureVersion = "2.6.0"
 allure {
     autoconfigure = true
     version = allureVersion
-    downloadLink = "https://github.com/allure-framework/allure2/releases/download/$allureVersion/allure-${allureVersion}.zip"
+    downloadLink =
+            "https://github.com/allure-framework/allure2/releases/download/$allureVersion/allure-${allureVersion}.zip"
     clean = true
 }
 
