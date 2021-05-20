@@ -1,5 +1,7 @@
-package absoft.tests;
+package absoft.tests.tests;
 
+import absoft.tests.appmanager.ApplicationManager;
+import absoft.tests.inputdata.ComputerData;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -23,7 +25,7 @@ public class TestBase {
   @AfterMethod(alwaysRun = true)
   public void removingTracesAfterTest(){
     ComputerData computerData = new ComputerData();
-    applicationManager.removeTracesAfterTest(computerData);
-    applicationManager.stop();
+    applicationManager.getAfterMethodActions().removeTracesAfterTest(computerData);
+    applicationManager.getAfterMethodActions().stop();
   }
 }

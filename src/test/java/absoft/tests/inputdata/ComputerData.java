@@ -1,4 +1,4 @@
-package absoft.tests;
+package absoft.tests.inputdata;
 
 public class ComputerData {
   private final String name;
