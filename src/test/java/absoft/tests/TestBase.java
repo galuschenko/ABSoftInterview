@@ -24,9 +24,6 @@ public class TestBase {
   public void removingTracesAfterTest(){
     ComputerData computerData = new ComputerData();
     applicationManager.removeTracesAfterTest(computerData);
-  }
-  public void tearDown() {
     applicationManager.stop();
   }
-
 }

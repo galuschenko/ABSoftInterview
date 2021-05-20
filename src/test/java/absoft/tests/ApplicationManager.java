@@ -225,7 +225,7 @@ public class ApplicationManager {
               computerData.getIntroduced().equals(convertedIntroduced.get(i)) &&
               computerData.getDiscontinued().equals(convertedDiscontinued.get(i)) &&
               computerData.getCompanyValue().equals(convertedCompanies.get(i))){
-        driver.findElement(By.xpath("//tr[" + i + "]/td/child::a")).click();
+        driver.findElement(By.xpath("//tr[" + (i + 1) + "]/td/child::a")).click();
         driver.findElement(By.xpath("//input[@class='btn danger']")).click();
         computerDeleted = true;
         break;
