@@ -8,10 +8,10 @@ public class ComputerData {
 
   // Values for default filling in the form "Add new computer"
   public ComputerData() {
-    this.name = "Apple";
-    this.introduced = "2011-05-11";
-    this.discontinued = "2021-05-11";
-    this.companyValue = "10";
+    this.name = "ASCI White";
+    this.introduced = "2001-01-01";
+    this.discontinued = "2006-01-01";
+    this.companyValue = "13";
   }
 
   public String getName() {

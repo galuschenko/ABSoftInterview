@@ -3,7 +3,7 @@
 <suite name="Interview suite" verbose="1" parallel="false">
     <test name="Interview" >
         <packages>
-            <package name="absofttests.*"></package>
+            <package name="absoft.tests.*"></package>
         </packages>
     </test>
 </suite>
