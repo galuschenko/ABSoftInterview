@@ -154,6 +154,7 @@ public class ApplicationManager {
     Assert.assertEquals(successfulMessage(), successfulMessageForming(computerData));
   }
 
+  // Deleting the created computer
   @Step
   public void removeTracesAfterTest(ComputerData computerData){
     Map<String, String> mapOfCompanies = getListForCompanyConversion();
@@ -176,14 +177,17 @@ public class ApplicationManager {
     boolean computerDeleted = deleteMatchedComputers(computerData, computerNames,
         computerIntroduced, computerDiscontinued, computerCompany, mapOfCompanies);
     if (!computerDeleted){
-      System.out.println("No matches are found on this page");
+      System.out.println("No matches found on this page");
     }
     if (computerNames.size() >= 10 && !computerDeleted){
-      getComputersAttributesFromNextList(computerData, mapOfCompanies);
+      removeTracesFromNextPages(computerData, mapOfCompanies);
       }
     }
 
-  private void getComputersAttributesFromNextList(ComputerData computerData,
+  /* If created computer wasn't found on the first page, the method looking for it on other pages
+   * and delete if it exist
+   */
+  private void removeTracesFromNextPages(ComputerData computerData,
                                                   Map<String, String> mapOfCompanies){
     driver.findElement(By.linkText("Next →")).click();
     List<WebElement> computerNames = driver
@@ -202,10 +206,11 @@ public class ApplicationManager {
     boolean computerDeleted = deleteMatchedComputers(computerData, computerNames,
         computerIntroduced, computerDiscontinued, computerCompany, mapOfCompanies);
     if (computerNames.size() >= 10 && !computerDeleted){
-      getComputersAttributesFromNextList(computerData, mapOfCompanies);
+      removeTracesFromNextPages(computerData, mapOfCompanies);
     }
   }
 
+  // Additional to "RemoveTracesAfterTest" method for removing computer
   private boolean deleteMatchedComputers(ComputerData computerData, List<WebElement> computerNames,
                                          List<WebElement> computerIntroduced,
                                          List<WebElement> computerDiscontinued,
@@ -220,7 +225,7 @@ public class ApplicationManager {
               computerData.getIntroduced().equals(convertedIntroduced.get(i)) &&
               computerData.getDiscontinued().equals(convertedDiscontinued.get(i)) &&
               computerData.getCompanyValue().equals(convertedCompanies.get(i))){
-        driver.findElement(By.linkText(computerData.getName())).click();
+        driver.findElement(By.xpath("//tr[" + i + "]/td/child::a")).click();
         driver.findElement(By.xpath("//input[@class='btn danger']")).click();
         computerDeleted = true;
         break;
@@ -229,6 +234,10 @@ public class ApplicationManager {
     return computerDeleted;
   }
 
+  /*
+   * Additional to "RemoveTracesAfterTest" method for removing computer
+   * Converts dates from "dd Mon yyyy" (shown in the computers table) to "yyyy-mm-dd"
+   */
   private List<String> dateConversion(List<WebElement> computerDate){
     Map<String, String> monthMap = new HashMap<>();
     monthMap.put("Jan", "01");
@@ -258,7 +267,12 @@ public class ApplicationManager {
     }
     return date;
   }
-  public Map<String, String> getListForCompanyConversion(){
+
+  /*
+   * Additional to "RemoveTracesAfterTest" method for removing computer
+   * Returns Map with company names and corresponding values
+   */
+  private Map<String, String> getListForCompanyConversion(){
     goToMainPage();
     driver.findElement(By.linkText("Add a new computer")).click();
     driver.findElement(By.xpath("//select[@id='company']")).click();
@@ -270,6 +284,11 @@ public class ApplicationManager {
     }
     return companyMap;
   }
+
+  /*
+   * Additional to "RemoveTracesAfterTest" method for removing computer
+   * Returns corresponding to companies values
+   */
   private List<String> companyConversion(Map<String,String> mapForCompanyConversion,
                                          List<WebElement> listForCompanyConversion){
     List<String> companyConversion = new ArrayList<>();
