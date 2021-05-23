@@ -5,10 +5,11 @@ Project with automated test using java + gradle + selenium + testNG + allure to 
 computers
 
 # How to run test?
+Default OS - Windows (for changing you need to configure the  file environment.properties)
 1. Download project using git or zip
 2. Install Java 8
 3. Open command line in the project's folder (containing gradle.build)
-4. Install Firefox 
+4. Install Firefox (s
 5. Execute commands: 
    
    - to build the project
@@ -27,3 +28,5 @@ computers
 
           ./gradlew allureServe
 
+
+If you want to change gefault settings (Change OS, browser, input data - reconfigure the file /src/test/resources/config/environment.properties)
